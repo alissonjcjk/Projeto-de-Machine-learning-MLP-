@@ -56,21 +56,39 @@ O modelo base consiste em um Perceptron Multicamadas (Feedforward Neural Network
 * **Camadas Ocultas:** Testadas com diferentes funções de ativação (ReLU, Sigmoid, Tanh).
 * **Camada de Saída:** Neurônio único com ativação Sigmoid (classificação binária).
 
-## 📈 Resultados
+## 📊 Análise Exploratória (EDA)
 
-*(Substitua esta seção com seus gráficos e métricas reais)*
+Antes da modelagem, foram analisadas as correlações entre variáveis.
 
-O melhor modelo obteve os seguintes resultados no conjunto de **Teste**:
+### Mapa de Calor (Correlação)
+A análise de correlação mostrou que `SibSp` e `Parch` possuem forte relação, justificando a criação da feature `Family`.
+![Heatmap de Correlação](assets/heatmap.png)
+
+### Sobrevivência por Gênero e Porto
+Notou-se uma maior taxa de sobrevivência entre mulheres e passageiros que embarcaram em portos específicos.
+<div style="display: flex; justify-content: space-between;">
+  <img src="assets/sexo_sobrevivencia.png" alt="Sexo x Sobrevivência" width="45%">
+  <img src="assets/porto_sobrevivencia.png" alt="Porto x Sobrevivência" width="45%">
+</div>
+
+---
+
+## 📈 Resultados do Modelo
+
+Após a otimização dos hiperparâmetros (GridSearch), o melhor modelo MLP obteve o seguinte desempenho na classificação dos passageiros do conjunto de teste:
 
 | Métrica | Resultado |
 | :--- | :--- |
-| Acurácia | 8X.XX% |
-| Precisão | 0.XX |
-| Recall | 0.XX |
-| F1-Score | 0.XX |
+| Acurácia | 83.33% |
+| Precisão | 0.84 |
+| Recall | 0.69 |
+| F1-Score | 0.76 |
 
-Exemplo de Matriz de Confusão:
-*(Insira aqui uma imagem da sua matriz de confusão)*
+### Matriz de Confusão
+A matriz abaixo detalha os acertos e erros do modelo final.
+![Matriz de Confusão Final](assets/matriz_confusao_final.png)
+
+
 
 ## 🚀 Como Executar
 
@@ -83,7 +101,7 @@ Exemplo de Matriz de Confusão:
     pip install -r requirements.txt
 
    Execute o Notebook:
-    jupyter notebook titanic_mlp_project.ipynb
+    Projeto_Machine_Learning(MLP).ipynb
    ```
 # ✒️ Autor
 Alisson da Silva Bernadino - LinkedIn https://www.linkedin.com/in/alisson-da-silva-bernadino-6535b3318/
